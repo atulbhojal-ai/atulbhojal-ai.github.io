@@ -1,10 +1,10 @@
 const portfolioData = {
     // Personal Information
-    hero: {
+    home: {
         name: "Atul Kumar Singh",
         jobTitles: "Prompt Engineer | Automation Specialist | Content-to-Tech Storyteller",
         summary: "I thrive on simplifying complex workflows with logic, language, and low-code tools. I've happily transitioned from creative storytelling to the world of tech, focusing on automation, prompt engineering, and powerful AI tools. It's been an incredible journey of turning curiosity into prototypes and real-world business solutions!",
-        profilePicture: "https://drive.google.com/uc?export=view&id=1acWlVFLHWC899QtYu-6hJwJR5uAzQC7P",
+        profilePicture: "https://github.com/atulbhojal-ai/atulbhojal-ai.github.io/blob/070a1cf4c3b82006accbc151a4afcb94d5e77e19/Assets/Profile%20Photo.jpg",
         bannerImage: "https://drive.google.com/uc?export=view&id=158DUZk43EwAL6RUsWV_yhp9o2k7hMqIi",
         resumeLink: "https://drive.google.com/uc?export=download&id=1R_UQUw2sqWImjdianTT8ICwarpUO7hzY",
         callToAction: "Explore My Projects",
@@ -74,7 +74,7 @@ const portfolioData = {
             {
                 title: "Inbound Lead Routing",
                 summary: "A smart system to automatically qualify and assign inbound leads.",
-                screenshot: "https://drive.google.com/uc?export=view&id=1IyoeZQBrNEWYWtyEDgnZO2GbEriiyp7m",
+                screenshot: "https://github.com/atulbhojal-ai/atulbhojal-ai.github.io/blob/070a1cf4c3b82006accbc151a4afcb94d5e77e19/Assets/Project%201.png",
                 tech: ["n8n", "JavaScript", "AbstractAPI"],
                 links: [
                     { name: "Video Part 1", url: "https://drive.google.com/file/d/1eH_DS-GFuTZD0TDbrL8heHbtPKIOAdMP/view" },
@@ -85,23 +85,14 @@ const portfolioData = {
             {
                 title: "AI-Powered Blog Auditor",
                 summary: "A series of bots to check blog posts for grammar, facts, and SEO compliance.",
-                screenshot: "https://drive.google.com/uc?export=view&id=16Nscr7M9PNBP5f0gwZiD_ueO-n0pGcJr",
+                screenshot: "https://github.com/atulbhojal-ai/atulbhojal-ai.github.io/blob/070a1cf4c3b82006accbc151a4afcb94d5e77e19/Assets/Project%202.png",
                 tech: ["n8n", "Gemini", "Google Docs"],
                 links: [],
             },
             {
-                title: "Workflow Assistant",
-                summary: "A workflow that takes form data, summarises it with AI, and organises it into a Notion dashboard.",
-                screenshot: "https://drive.google.com/uc?export=view&id=1WPwqaxxv6KmoGNwwC5x2XnYVlfaj6DZ_",
-                tech: ["n8n", "Notion", "Forms"],
-                links: [
-                    { name: "Documentation", url: "https://docs.google.com/document/d/1WZKtaHbCbWTDEuo06AHxtRPwgGH5FcOnd7xsApigXwc/edit" }
-                ],
-            },
-            {
-                title: "AI Personalised Chatbot",
-                summary: "An experiment in creating a chatbot with a personality that mimics human consciousness.",
-                screenshot: "https://drive.google.com/uc?export=view&id=1qPG9Sx_OiyC-q78AzKVccGUay6j4fyF9",
+                title: "WhatsApp ChatBot",
+                summary: "A chatBot which handles everything with the help of an AI agent, from conversation to qualifying the leads to logging data in the database.",
+                screenshot: "https://github.com/atulbhojal-ai/atulbhojal-ai.github.io/blob/070a1cf4c3b82006accbc151a4afcb94d5e77e19/Assets/WhatsApp%20ChatBot.png",
                 tech: ["n8n", "Gemini", "Creative Prompting"],
                 links: [
                     { name: "Documentation", url: "https://docs.google.com/document/d/1k1QuqWy6wyK8qy6401poSgwZudMTnqf-doFetpp_26U/edit" }
