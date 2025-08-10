@@ -1,6 +1,6 @@
 const portfolioData = {
     // Personal Information
-    home: {
+    hero: {
         name: "Atul Kumar Singh",
         jobTitles: "Prompt Engineer | Automation Specialist | Content-to-Tech Storyteller",
         summary: "I thrive on simplifying complex workflows with logic, language, and low-code tools. I've happily transitioned from creative storytelling to the world of tech, focusing on automation, prompt engineering, and powerful AI tools. It's been an incredible journey of turning curiosity into prototypes and real-world business solutions!",
