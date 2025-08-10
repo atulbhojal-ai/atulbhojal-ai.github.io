@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atul Kumar Singh - Automation Specialist Portfolio</title>
+    <!-- Tailwind CSS CDN for a modern, utility-first styling approach -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a cohesive and professional look */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0d001a; /* Very dark purple/blue background */
+            color: #d4e0ff; /* Light, cool blue for text */
+        }
+        /* Style for smooth scrolling and section spacing */
+        section {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Hero section banner and overlay for a dynamic, professional header */
+        #hero {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 0, 26, 0.7); /* Dark overlay */
+            z-index: -1;
+        }
+
+        /* Navigation link hover effect */
+        .nav-link {
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+        .nav-link:hover {
+            color: #ffb703; /* Bright yellow accent on hover */
+            background-color: rgba(255, 183, 3, 0.2);
+        }
+
+        /* Project card hover effect */
+        .project-card {
+            background-color: #1a0033; /* Darker card background for contrast */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid #330066;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.4);
+            border-color: #ffb703; /* Yellow border on hover */
+        }
+
+        /* Custom button styling with a gradient for a modern touch */
+        .primary-button {
+            background: linear-gradient(45deg, #fb8500, #ffb703); /* Energetic orange to yellow gradient */
+            color: #1a0033;
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .primary-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Style for the subtle border around the profile picture */
+        .profile-pic-container {
+            border: 5px solid #ffb703; /* Bright yellow border */
+            border-radius: 9999px;
+            padding: 4px;
+        }
+        .profile-pic-container img {
+            border-radius: 9999px;
+        }
+
+        /* Floating contact button */
+        #contact-fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+
+        /* Input and textarea styles */
+        input, textarea {
+            background-color: #1a0033;
+            border: 1px solid #330066;
+            color: #d4e0ff;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #ffb703;
+            box-shadow: 0 0 0 2px rgba(255, 183, 3, 0.3);
+        }
+
+        /* Mobile responsiveness adjustments */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            .hero-content .text-left {
+                text-align: center;
+            }
+            #contact-fab {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#0d001a] text-[#d4e0ff]">
+
+    <!-- Include the data.js file -->
+    <script src="data.js"></script>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-lg z-50 p-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <a href="#hero" class="text-3xl font-extrabold text-[#ffb703] mb-4 md:mb-0">Atul Kumar Singh</a>
+            <div class="flex flex-wrap justify-center space-x-2 md:space-x-4" id="nav-links">
+                <!-- Navigation links will be populated here -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="text-white min-h-screen pt-20">
+        <div class="container mx-auto p-8 md:p-12 rounded-lg shadow-2xl backdrop-filter backdrop-blur-md max-w-5xl bg-black bg-opacity-30 border-2 border-[#fb8500]">
+            <div class="flex flex-col md:flex-row items-center md:space-x-8 hero-content">
+                <div class="profile-pic-container mb-8 md:mb-0 flex-shrink-0">
+                    <img id="profile-pic" src="" alt="Atul Kumar Singh" class="w-48 h-48 object-cover">
+                </div>
+                <div class="text-left md:text-left">
+                    <h1 id="hero-name" class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight"></h1>
+                    <h2 id="hero-titles" class="text-2xl md:text-3xl font-semibold text-[#ffb703] mb-6"></h2>
+                    <p id="hero-summary" class="text-lg md:text-xl leading-relaxed mb-8"></p>
+                    <a id="hero-cta-button" href="#projects" class="primary-button"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Experience Section -->
+    <section id="about" class="bg-[#1a0033] pt-20 pb-20">
+        <div class="container mx-auto p-8 bg-[#0d001a] rounded-lg shadow-xl max-w-4xl border-2 border-[#ffb703]">
+            <h2 id="about-title" class="text-4xl font-bold text-[#ffb703] mb-6"></h2>
+            <p id="about-story" class="text-lg leading-relaxed text-gray-200"></p>
+            <div id="experience-list" class="mt-8">
+                <!-- Experience items will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Projects Section -->
+    <section id="skills-projects" class="pt-20 pb-20">
+        <div class="container mx-auto p-8 bg-[#1a0033] rounded-lg shadow-xl max-w-6xl border-2 border-[#fb8500]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Skills Column -->
+                <div id="skills-column">
+                    <h2 id="skills-title" class="text-4xl font-bold text-[#ffb703] mb-8"></h2>
+                    <div id="skills-categories" class="space-y-6">
+                        <!-- Skills categories will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Projects Column -->
+                <div id="projects-column">
+                    <h2 id="projects-title" class="text-4xl font-bold text-[#ffb703] mb-8"></h2>
+                    <div id="projects-list" class="space-y-8">
+                        <!-- Projects will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Contact Button -->
+    <a id="contact-fab" href="" target="_blank" class="primary-button text-sm md:text-base px-6 py-4">
+        Contact Me!
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white p-6 text-center">
+        <div class="container mx-auto">
+            <p id="footer-text" class="mb-4"></p>
+            <div class="flex justify-center space-x-6" id="footer-social-links">
+                <!-- Social media links will be populated here -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check if portfolioData exists before proceeding
+        if (typeof portfolioData !== 'undefined') {
+            // Function to safely inject HTML with Markdown-like bolding
+            const populateText = (elementId, text, isMarkdown = false) => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    if (isMarkdown) {
+                        // Replace **text** with <strong>text</strong>
+                        const htmlText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                        element.innerHTML = htmlText;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            };
+
+            // Dynamically populate the Hero section
+            document.getElementById('hero').style.backgroundImage = `url('${portfolioData.hero.bannerImage}')`;
+            document.getElementById('profile-pic').src = portfolioData.hero.profilePicture;
+            populateText('hero-name', portfolioData.hero.name);
+            populateText('hero-titles', portfolioData.hero.jobTitles);
+            populateText('hero-summary', portfolioData.hero.summary);
+            const ctaButton = document.getElementById('hero-cta-button');
+            ctaButton.textContent = portfolioData.hero.callToAction;
+            ctaButton.href = "#projects-column";
+
+            // Dynamically populate About & Experience section
+            populateText('about-title', portfolioData.about.title);
+            populateText('about-story', portfolioData.about.story, true);
+            const experienceList = document.getElementById('experience-list');
+            portfolioData.about.experience.forEach(exp => {
+                const expItem = document.createElement('div');
+                expItem.className = 'bg-[#1a0033] p-6 rounded-lg shadow-md border border-[#330066] mt-4';
+                expItem.innerHTML = `
+                    <h4 class="text-xl font-bold text-[#ffb703]">${exp.title}</h4>
+                    <p class="text-gray-300">${exp.company} (${exp.duration})</p>
+                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1">
+                        ${exp.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
+                    </ul>
+                `;
+                experienceList.appendChild(expItem);
+            });
+
+            // Dynamically populate Skills & Projects section
+            populateText('skills-title', portfolioData.skills.title);
+            const skillsCategories = document.getElementById('skills-categories');
+            portfolioData.skills.categories.forEach(cat => {
+                const catItem = document.createElement('div');
+                catItem.className = 'bg-[#0d001a] p-6 rounded-lg shadow-md border border-[#330066] hover:border-[#ffb703] transition duration-300 transform hover:scale-105';
+                catItem.innerHTML = `
+                    <h3 class="text-2xl font-semibold text-[#ffb703] mb-3">${cat.name}</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        ${cat.list.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                `;
+                skillsCategories.appendChild(catItem);
+            });
+
+            populateText('projects-title', portfolioData.projects.title);
+            const projectsList = document.getElementById('projects-list');
+            portfolioData.projects.list.forEach(proj => {
+                const projCard = document.createElement('div');
+                projCard.className = 'project-card rounded-lg shadow-md overflow-hidden';
+                projCard.innerHTML = `
+                    <a href="${proj.screenshot}" target="_blank">
+                        <img src="${proj.screenshot}" alt="${proj.title} Screenshot" class="w-full h-56 object-cover hover:scale-105 transition duration-300">
+                    </a>
+                    <div class="p-6 text-left">
+                        <h3 class="text-2xl font-semibold text-[#ffb703] mb-2">${proj.title}</h3>
+                        <p class="text-gray-300 mb-4">${proj.summary}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${proj.tech.map(tech => `<span class="bg-[#fb8500] text-white text-xs font-semibold px-2 py-1 rounded-full">${tech}</span>`).join('')}
+                        </div>
+                        ${proj.links.length > 0 ? `<h4 class="text-lg font-semibold text-gray-200 mb-2">See It In Action!</h4>` : ''}
+                        <div class="flex flex-wrap gap-2">
+                            ${proj.links.map(link => `<a href="${link.url}" target="_blank" class="text-white bg-[#fb8500] hover:bg-[#ffb703] px-3 py-1 rounded-full transition duration-300 text-sm">${link.name}</a>`).join('')}
+                        </div>
+                    </div>
+                `;
+                projectsList.appendChild(projCard);
+            });
+
+            // Dynamically populate Navigation links
+            const navLinks = document.getElementById('nav-links');
+            ['hero', 'about', 'skills-projects', 'contact'].forEach(id => {
+                const linkText = id.charAt(0).toUpperCase() + id.slice(1).replace('-', ' & ');
+                const link = document.createElement('a');
+                link.href = `#${id}`;
+                link.className = 'nav-link text-white hover:text-[#ffb703]';
+                link.textContent = linkText;
+                navLinks.appendChild(link);
+            });
+
+            // Dynamically populate Floating Contact button
+            const contactFab = document.getElementById('contact-fab');
+            contactFab.href = portfolioData.contact.formLink;
+
+            // Dynamically populate Footer
+            populateText('footer-text', `© ${portfolioData.social.year} ${portfolioData.hero.name}. All rights reserved.`);
+            const footerSocialLinks = document.getElementById('footer-social-links');
+            footerSocialLinks.innerHTML = `
+                <a href="${portfolioData.social.linkedin}" target="_blank" class="text-[#ffb703] hover:text-[#fb8500] transition duration-300 text-2xl">
+                    <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="${portfolioData.social.github}" target="_blank" class="text-[#ffb703] hover:text-[#fb8500] transition duration-300 text-2xl">
+                    <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.007-.866-.012-1.699-2.782.602-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.003.07 1.531 1.029 1.531 1.029.892 1.529 2.341 1.089 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.931 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.865c.85.004 1.7.117 2.49.331 1.909-1.29 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.698 1.028 1.591 1.028 2.682 0 3.829-2.339 4.673-4.566 4.92.359.309.678.917.678 1.846 0 1.33-.012 2.41-.012 2.737 0 .267.18.577.688.482C21.137 20.2 24 16.447 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd" /></svg>
+                </a>
+            `;
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
