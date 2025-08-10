@@ -125,9 +125,6 @@
 </head>
 <body class="bg-[#0d001a] text-[#d4e0ff]">
 
-    <!-- Include the data.js file -->
-    <script src="data.js"></script>
-
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 right-0 bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-lg z-50 p-4">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
@@ -205,112 +202,265 @@
     </footer>
 
     <script>
-        // Check if portfolioData exists before proceeding
-        if (typeof portfolioData !== 'undefined') {
-            // Function to safely inject HTML with Markdown-like bolding
-            const populateText = (elementId, text, isMarkdown = false) => {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    if (isMarkdown) {
-                        // Replace **text** with <strong>text</strong>
-                        const htmlText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                        element.innerHTML = htmlText;
-                    } else {
-                        element.textContent = text;
+        // This file contains all the dynamic content for the portfolio website.
+        const portfolioData = {
+            // --- Home Section ---
+            home: {
+                name: "Atul Kumar Singh",
+                jobTitles: "Prompt Engineer | Automation Specialist | Content-to-Tech Storyteller",
+                summary: "I thrive on simplifying complex workflows with logic, language, and low-code tools. I've happily transitioned from creative storytelling to the world of tech, focusing on automation, prompt engineering, and powerful AI tools. It's been an incredible journey of turning curiosity into prototypes and real-world business solutions!",
+                // Converted GitHub links to their 'raw' format for direct image access
+                profilePicture: "https://raw.githubusercontent.com/atulbhojal-ai/atulbhojal-ai.github.io/bd8b50a85d852175bbbc03652243548ca0fb447f/Assets/Profile%20Photo.jpg",
+                bannerImage: "https://raw.githubusercontent.com/atulbhojal-ai/atulbhojal-ai.github.io/bd8b50a85d852175bbbc03652243548ca0fb447f/Assets/Website-banner.png",
+                // The Google Drive link for your CV/Resume
+                resumeLink: "https://drive.google.com/file/d/1R_UQUw2sqWImjdianTT8ICwarpUO7hzY/view?usp=sharing",
+                callToAction: "Explore My Projects",
+            },
+
+            // --- About & Experience Section ---
+            about: {
+                title: "About Me & My Journey",
+                story: "I'm a dedicated Automation Specialist, passionate about making technology work smarter. I love using no-code platforms like **n8n**, Zapier, and Make to build clever integrations that transform chaotic, repetitive tasks into wonderfully smooth and smart systems. I'm always on the lookout for new challenges and relish the chance to build solutions that save time, reduce errors, and bring a little more happiness to the workday!",
+                experience: [
+                    {
+                        title: "SEO Content Writer",
+                        company: "Houzeo",
+                        duration: "2024 - Present",
+                        bullets: [
+                            "Crafted engaging SEO content for a US real estate platform.",
+                            "Worked alongside the tech team for JSON-based publishing.",
+                        ]
+                    },
+                    {
+                        title: "Content Editor",
+                        company: "Phistream Consulting",
+                        duration: "2023",
+                        bullets: [
+                            "Managed daily government newsletters and weekly insights.",
+                            "A great time collaborating with senior writers and editors!",
+                        ]
+                    },
+                ],
+            },
+
+            // --- Skills Section ---
+            skills: {
+                title: "My Skills & Toolkit",
+                categories: [
+                    {
+                        name: "Prompt Engineering",
+                        list: [
+                            "Generative AI with LLMs (e.g., GPT-4, Gemini)",
+                            "Prompt Chaining, Chain of Thought (CoT)",
+                            "AI-driven code generation in JavaScript and Python.",
+                        ]
+                    },
+                    {
+                        name: "Automation & Low-Code",
+                        list: [
+                            "n8n expert (API, Webhooks, HTTP, Google Sheets, etc.)",
+                            "JavaScript for advanced logic within workflows",
+                            "Experience with Zapier and Make.",
+                        ]
+                    },
+                    {
+                        name: "APIs & Data",
+                        list: [
+                            "OpenAI, AbstractAPI",
+                            "JSON handling, HTML",
+                            "SQL and NoSQL database concepts.",
+                        ]
                     }
+                ]
+            },
+
+            // --- Projects Section ---
+            projects: {
+                title: "Featured Projects",
+                list: [
+                    {
+                        title: "Inbound Lead Routing",
+                        summary: "A smart system to automatically qualify and assign inbound leads.",
+                        screenshot: "https://raw.githubusercontent.com/atulbhojal-ai/atulbhojal-ai.github.io/bd8b50a85d852175bbbc03652243548ca0fb447f/Assets/Project%201.png",
+                        tech: ["n8n", "JavaScript", "AbstractAPI"],
+                        links: [
+                            { name: "Video Part 1", url: "https://drive.google.com/file/d/1eH_DS-GFuTZD0TDbrL8heHbtPKIOAdMP/view?usp=sharing" },
+                            { name: "Video Part 2", url: "https://drive.google.com/file/d/160kZWYFI5G7fSZUf81ENBOyVj7qovb3m/view?usp=sharing" },
+                            { name: "Test Run", url: "https://drive.google.com/file/d/1zOZ-3dd7BurUcrldRulKPTr8eNFlXasR/view?usp=sharing" },
+                        ],
+                    },
+                    {
+                        title: "AI-Powered Blog Auditor",
+                        summary: "A series of bots to check blog posts for grammar, facts, and SEO compliance.",
+                        screenshot: "https://raw.githubusercontent.com/atulbhojal-ai/atulbhojal-ai.github.io/bd8b50a85d852175bbbc03652243548ca0fb447f/Assets/Project%202.png",
+                        tech: ["n8n", "Gemini", "Google Docs"],
+                        links: [],
+                    },
+                    {
+                        title: "Workflow Assistant",
+                        summary: "A workflow that takes form data, summarises it with AI, and organises it into a Notion dashboard.",
+                        screenshot: "https://raw.githubusercontent.com/atulbhojal-ai/atulbhojal-ai.github.io/bd8b50a85d852175bbbc03652243548ca0fb447f/Assets/WhatsApp%20ChatBot.png",
+                        tech: ["n8n", "Notion", "Forms"],
+                        links: [
+                            { name: "Documentation", url: "https://docs.google.com/document/d/1WZKtaHbCbWTDEuo06AHxtRPwgGH5FcOnd7xsApigXwc/edit?usp=sharing" }
+                        ],
+                    },
+                    {
+                        title: "AI Personalised Chatbot",
+                        summary: "An experiment in creating a chatbot with a personality that mimics human consciousness.",
+                        screenshot: "https://raw.githubusercontent.com/atulbhojal-ai/atulbhojal-ai.github.io/bd8b50a85d852175bbbc03652243548ca0fb447f/Assets/Website%20ChatBot.png",
+                        tech: ["n8n", "Gemini", "Creative Prompting"],
+                        links: [
+                            { name: "Documentation", url: "https://docs.google.com/document/d/1k1QuqWy6wyK8qy6401poSgwZudMTnqf-doFetpp_26U/edit?usp=sharing" }
+                        ],
+                    },
+                    // --- Uncomment the projects below to add them to your site ---
+                    /*
+                    {
+                        title: "Your New Project Name",
+                        summary: "A brief, compelling summary of your new project.",
+                        screenshot: "https://example.com/your-image-link.png",
+                        tech: ["Tech Stack 1", "Tech Stack 2"],
+                        links: [
+                            { name: "View Live", url: "https://example.com" },
+                            { name: "GitHub Repo", url: "https://github.com/your-repo" },
+                        ],
+                    },
+                    {
+                        title: "Another Exciting Project",
+                        summary: "This is a great place to describe your next project.",
+                        screenshot: "https://example.com/another-image-link.png",
+                        tech: ["React", "Node.js", "Express"],
+                        links: [
+                            { name: "View Live", url: "https://another-example.com" },
+                        ],
+                    },
+                    */
+                ],
+            },
+
+            // --- Contact Information ---
+            contact: {
+                title: "Let's Connect!",
+                intro: "Have a question, a project idea, or just fancy a chat about automation? I'd be absolutely delighted to hear from you!",
+                email: "atulbhojal.ra1@gmail.com",
+                phone: "+91 9953475427",
+                location: "India (Remote + Hybrid friendly)",
+                formLink: "https://docs.google.com/forms/d/e/1FAIpQLSfZE2n4VEVT7eVhxj2gLhpoiknhqCXgPyZ39D0xBTblsX7Ayw/viewform?usp=sharing&ouid=102478087926455650608",
+            },
+
+            // --- Social Media & Footer ---
+            social: {
+                linkedin: "https://www.linkedin.com/in/atulbhojal/",
+                github: "https://github.com/atulbhojal-ai",
+                year: new Date().getFullYear(),
+            },
+        };
+
+        // Function to safely inject HTML with Markdown-like bolding
+        const populateText = (elementId, text, isMarkdown = false) => {
+            const element = document.getElementById(elementId);
+            if (element) {
+                if (isMarkdown) {
+                    // Replace **text** with <strong>text</strong>
+                    const htmlText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    element.innerHTML = htmlText;
+                } else {
+                    element.textContent = text;
                 }
-            };
+            }
+        };
 
-            // Dynamically populate the Home section
-            document.getElementById('home').style.backgroundImage = `url('${portfolioData.home.bannerImage}')`;
-            document.getElementById('profile-pic').src = portfolioData.home.profilePicture;
-            populateText('home-name', portfolioData.home.name);
-            populateText('home-titles', portfolioData.home.jobTitles);
-            populateText('home-summary', portfolioData.home.summary);
-            const ctaButton = document.getElementById('home-cta-button');
-            ctaButton.textContent = portfolioData.home.callToAction;
-            ctaButton.href = "#projects-column";
+        // Dynamically populate the Home section
+        document.getElementById('home').style.backgroundImage = `url('${portfolioData.home.bannerImage}')`;
+        document.getElementById('profile-pic').src = portfolioData.home.profilePicture;
+        populateText('home-name', portfolioData.home.name);
+        populateText('home-titles', portfolioData.home.jobTitles);
+        populateText('home-summary', portfolioData.home.summary);
+        const ctaButton = document.getElementById('home-cta-button');
+        ctaButton.textContent = portfolioData.home.callToAction;
+        ctaButton.href = "#projects-column";
 
-            // Dynamically populate About & Experience section
-            populateText('about-title', portfolioData.about.title);
-            populateText('about-story', portfolioData.about.story, true);
-            const experienceList = document.getElementById('experience-list');
-            portfolioData.about.experience.forEach(exp => {
-                const expItem = document.createElement('div');
-                expItem.className = 'bg-[#1a0033] p-6 rounded-lg shadow-md border border-[#330066] mt-4';
-                expItem.innerHTML = `
-                    <h4 class="text-xl font-bold text-[#ffb703]">${exp.title}</h4>
-                    <p class="text-gray-300">${exp.company} (${exp.duration})</p>
-                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1">
-                        ${exp.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
-                    </ul>
-                `;
-                experienceList.appendChild(expItem);
-            });
+        // Dynamically populate About & Experience section
+        populateText('about-title', portfolioData.about.title);
+        populateText('about-story', portfolioData.about.story, true);
+        const experienceList = document.getElementById('experience-list');
+        portfolioData.about.experience.forEach(exp => {
+            const expItem = document.createElement('div');
+            expItem.className = 'bg-[#1a0033] p-6 rounded-lg shadow-md border border-[#330066] mt-4';
+            expItem.innerHTML = `
+                <h4 class="text-xl font-bold text-[#ffb703]">${exp.title}</h4>
+                <p class="text-gray-300">${exp.company} (${exp.duration})</p>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1">
+                    ${exp.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
+                </ul>
+            `;
+            experienceList.appendChild(expItem);
+        });
 
-            // Dynamically populate Skills & Projects section
-            populateText('skills-title', portfolioData.skills.title);
-            const skillsCategories = document.getElementById('skills-categories');
-            portfolioData.skills.categories.forEach(cat => {
-                const catItem = document.createElement('div');
-                catItem.className = 'bg-[#0d001a] p-6 rounded-lg shadow-md border border-[#330066] hover:border-[#ffb703] transition duration-300 transform hover:scale-105';
-                catItem.innerHTML = `
-                    <h3 class="text-2xl font-semibold text-[#ffb703] mb-3">${cat.name}</h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1">
-                        ${cat.list.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                `;
-                skillsCategories.appendChild(catItem);
-            });
+        // Dynamically populate Skills & Projects section
+        populateText('skills-title', portfolioData.skills.title);
+        const skillsCategories = document.getElementById('skills-categories');
+        portfolioData.skills.categories.forEach(cat => {
+            const catItem = document.createElement('div');
+            catItem.className = 'bg-[#0d001a] p-6 rounded-lg shadow-md border border-[#330066] hover:border-[#ffb703] transition duration-300 transform hover:scale-105';
+            catItem.innerHTML = `
+                <h3 class="text-2xl font-semibold text-[#ffb703] mb-3">${cat.name}</h3>
+                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                    ${cat.list.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            `;
+            skillsCategories.appendChild(catItem);
+        });
 
-            populateText('projects-title', portfolioData.projects.title);
-            const projectsList = document.getElementById('projects-list');
-            portfolioData.projects.list.forEach(proj => {
-                const projCard = document.createElement('div');
-                projCard.className = 'project-card rounded-lg shadow-md overflow-hidden';
-                projCard.innerHTML = `
-                    <a href="${proj.screenshot}" target="_blank">
-                        <img src="${proj.screenshot}" alt="${proj.title} Screenshot" class="w-full h-56 object-cover hover:scale-105 transition duration-300" referrerpolicy="no-referrer">
-                    </a>
-                    <div class="p-6 text-left">
-                        <h3 class="text-2xl font-semibold text-[#ffb703] mb-2">${proj.title}</h3>
-                        <p class="text-gray-300 mb-4">${proj.summary}</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            ${proj.tech.map(tech => `<span class="bg-[#fb8500] text-white text-xs font-semibold px-2 py-1 rounded-full">${tech}</span>`).join('')}
-                        </div>
-                        ${proj.links.length > 0 ? `<h4 class="text-lg font-semibold text-gray-200 mb-2">See It In Action!</h4>` : ''}
-                        <div class="flex flex-wrap gap-2">
-                            ${proj.links.map(link => `<a href="${link.url}" target="_blank" class="text-white bg-[#fb8500] hover:bg-[#ffb703] px-3 py-1 rounded-full transition duration-300 text-sm">${link.name}</a>`).join('')}
-                        </div>
-                    </div>
-                `;
-                projectsList.appendChild(projCard);
-            });
-
-            // Dynamically populate Navigation links
-            const navLinks = document.getElementById('nav-links');
-            ['home', 'about', 'skills-projects', 'contact'].forEach(id => {
-                const linkText = id.charAt(0).toUpperCase() + id.slice(1).replace('-', ' & ');
-                const link = document.createElement('a');
-                link.href = `#${id}`;
-                link.className = 'nav-link text-white hover:text-[#ffb703]';
-                link.textContent = linkText;
-                navLinks.appendChild(link);
-            });
-
-            // Dynamically populate Floating Contact button
-            const contactFab = document.getElementById('contact-fab');
-            contactFab.href = portfolioData.contact.formLink;
-
-            // Dynamically populate Footer
-            populateText('footer-text', `© ${portfolioData.social.year} ${portfolioData.home.name}. All rights reserved.`);
-            const footerSocialLinks = document.getElementById('footer-social-links');
-            footerSocialLinks.innerHTML = `
-                <a href="${portfolioData.social.linkedin}" target="_blank" class="text-[#ffb703] hover:text-[#fb8500] transition duration-300 text-2xl">
-                    <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        populateText('projects-title', portfolioData.projects.title);
+        const projectsList = document.getElementById('projects-list');
+        portfolioData.projects.list.forEach(proj => {
+            const projCard = document.createElement('div');
+            projCard.className = 'project-card rounded-lg shadow-md overflow-hidden';
+            projCard.innerHTML = `
+                <a href="${proj.screenshot}" target="_blank">
+                    <img src="${proj.screenshot}" alt="${proj.title} Screenshot" class="w-full h-56 object-cover hover:scale-105 transition duration-300" referrerpolicy="no-referrer">
                 </a>
-                <a href="${portfolioData.social.github}" target="_blank" class="text-[#ffb703] hover:text-[#fb8500] transition duration-300 text-2xl">
-                    <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.007-.866-.012-1.699-2.782.602-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.003.07 1.531 1.029 1.531 1.029.892 1.529 2.341 1.089 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.931 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.865c.85.004 1.7.117 2.49.331 1.909-1.29 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.698 1.028 1.591 1.028 2.682 0 3.829-2.339 4.673-4.566 4.92.359.309.678.917.678 1.846 0 1.33-.012 2.41-.012 2.737 0 .267.18.577.688.482C21.137 20.2 24 16.447 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd" /></svg>
+                <div class="p-6 text-left">
+                    <h3 class="text-2xl font-semibold text-[#ffb703] mb-2">${proj.title}</h3>
+                    <p class="text-gray-300 mb-4">${proj.summary}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${proj.tech.map(tech => `<span class="bg-[#fb8500] text-white text-xs font-semibold px-2 py-1 rounded-full">${tech}</span>`).join('')}
+                    </div>
+                    ${proj.links.length > 0 ? `<h4 class="text-lg font-semibold text-gray-200 mb-2">See It In Action!</h4>` : ''}
+                    <div class="flex flex-wrap gap-2">
+                        ${proj.links.map(link => `<a href="${link.url}" target="_blank" class="text-white bg-[#fb8500] hover:bg-[#ffb703] px-3 py-1 rounded-full transition duration-300 text-sm">${link.name}</a>`).join('')}
+                    </div>
+                </div>
+            `;
+            projectsList.appendChild(projCard);
+        });
+
+        // Dynamically populate Navigation links
+        const navLinks = document.getElementById('nav-links');
+        ['home', 'about', 'skills-projects'].forEach(id => {
+            const linkText = id.charAt(0).toUpperCase() + id.slice(1).replace('-', ' & ');
+            const link = document.createElement('a');
+            link.href = `#${id}`;
+            link.className = 'nav-link text-white hover:text-[#ffb703]';
+            link.textContent = linkText;
+            navLinks.appendChild(link);
+        });
+
+        // Dynamically populate Floating Contact button
+        const contactFab = document.getElementById('contact-fab');
+        contactFab.href = portfolioData.contact.formLink;
+
+        // Dynamically populate Footer
+        populateText('footer-text', `© ${portfolioData.social.year} ${portfolioData.home.name}. All rights reserved.`);
+        const footerSocialLinks = document.getElementById('footer-social-links');
+        footerSocialLinks.innerHTML = `
+            <a href="${portfolioData.social.linkedin}" target="_blank" class="text-[#ffb703] hover:text-[#fb8500] transition duration-300 text-2xl">
+                <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="${portfolioData.social.github}" target="_blank" class="text-[#ffb703] hover:text-[#fb8500] transition duration-300 text-2xl">
+                <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.007-.866-.012-1.699-2.782.602-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.003.07 1.531 1.029 1.531 1.029.892 1.529 2.341 1.089 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.931 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.865c.85.004 1.7.117 2.49.331 1.909-1.29 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.698 1.028 1.591 1.028 2.682 0 3.829-2.339 4.673-4.566 4.92.359.309.678.917.678 1.846 0 1.33-.012 2.41-.012 2.737 0 .267.18.577.688.482C21.137 20.2 24 16.447 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd" /></svg>
             </a>
         `;
 
